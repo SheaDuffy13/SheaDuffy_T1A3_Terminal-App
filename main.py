@@ -65,7 +65,8 @@ while running_game:
                     with open("save.txt") as f:
                         file = f.readlines()
                         user_name = file[0].strip()
-                        user.coinpurse.add(file[1].strip())
+                        user = c.Player(user_name)
+                        user.coinpurse.set(int(file[1]))
 
                     # user_name = load_file[0]
                     # user.coinpurse = int(load_file[1])
