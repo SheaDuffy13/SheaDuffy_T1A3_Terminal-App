@@ -28,19 +28,3 @@ class Chest:
     def loot(self, player):
         player.coinpurse.add(self.loose_coins.coins)
         self.loose_coins = 0
-
-# with open("save.txt") as f:
-#     file = f.readlines()
-#     x = file[0].strip()
-#     y = file[1].strip()
-#     # print(file[0])
-#     # print(file[1])
-#     print(x)
-#     print(y)
-
-# user = Player("Seth")
-
-# chest = Chest(["rusty dagger"], 30)
-# chest.loot(user)
-# print(chest.loose_coins)
-# print(f"{user.name} has {user.coinpurse} in their coinpurse")

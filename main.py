@@ -1,5 +1,4 @@
 import random
-# from secrets import choice
 import time
 import clearing
 
@@ -14,13 +13,8 @@ def save():
         user_name,
         str(user.coinpurse)
     ]
-    # sf = open("load.txt", "w")
-    # for item in save_list:
-    #     sf.write(item + "\n")
-    # sf.close()
     with open("save.txt", "w") as f:
         f.write("\n".join(save_list))
-
 
 def draw():
     print('Xx------------------------------xX')
@@ -53,31 +47,20 @@ while running_game:
             user_name = input('Enter your thief\'s name: ')
             user = c.Player(user_name)
             user.coinpurse.set(0)
-            bag_list = ['rose', 'rusty dagger','baggie of strange herbs','gold ring']
+            # bag_list = ['rose', 'rusty dagger','baggie of strange herbs','gold ring']
             menu = False
             play = True
+
         if choice == "2":
             try:
-                # sf = open("load.txt", "r")
-                # load_file = sf.readlines()
-                # if len(load_file) == 2:        # <----    update for number of saved parameters
-                if menu is True:
-                    with open("save.txt") as f:
-                        file = f.readlines()
-                        user_name = file[0].strip()
-                        user = c.Player(user_name)
-                        user.coinpurse.set(int(file[1]))
-
-                    # user_name = load_file[0]
-                    # user.coinpurse = int(load_file[1])
-                    clearing.clear()
-                    print(f"Welcome back, {user_name}")
-                    time.sleep(1)
-                    menu = False
-                    play = True
-                else:
-                    print("Corrupt save file")
-                    input("Press enter to go back: ")
+                with open("save.txt") as f:
+                    file = f.readlines()
+                    user_name = file[0].strip()
+                    user = c.Player(user_name)
+                    user.coinpurse.set(int(file[1]))
+                clearing.clear()
+                menu = False
+                play = True
             except OSError:
                 print("Save file not available..")
                 input("Press enter to go back: ")
@@ -86,20 +69,17 @@ while running_game:
             quit()
 
     while play:
-        # save()  #autosave
+        save()
         clearing.clear()
+        print(f"Welcome back, {user.name}. You have {user.coinpurse} in your coinpurse")
 
-        # print(chest.loose_coins)
-        print(f"{user.name} has {user.coinpurse} in their coinpurse")
-
-        user_input = input('Press e to exit back to menu: ')
+        user_input = input('Press e for main menu or s to steal from chest: ')
         if user_input == "e":
-            save()
-            print("")
-            print("Autosaving...")
-            time.sleep(0.4)
             play = False
             menu = True
+            save()
+            print("\nAutosaving...")
+            time.sleep(0.4)
         if user_input == "s":
             chest = c.Chest(["rusty dagger"], 30)
             print(chest.loose_coins)
@@ -107,4 +87,3 @@ while running_game:
             chest.loot(user)
             print(chest.loose_coins)
             time.sleep(0.7)
-        input("")
