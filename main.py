@@ -11,7 +11,8 @@ play = False
 def save():
     save_list = [
         user_name,
-        str(user.coinpurse)
+        str(user.coinpurse),
+        ",".join(user.linen_bag)
     ]
     with open("save.txt", "w") as f:
         f.write("\n".join(save_list))
@@ -47,7 +48,7 @@ while running_game:
             user_name = input('Enter your thief\'s name: ')
             user = c.Player(user_name)
             user.coinpurse.set(0)
-            bag_list = []
+            user.linen_bag.set([])
             menu = False
             play = True
 
@@ -57,8 +58,8 @@ while running_game:
                     file = f.readlines()
                     user_name = file[0].strip()
                     user = c.Player(user_name)
-                    user.coinpurse.set(int(file[1]))
-                    # user.linen_bag.set(int(file[2]))
+                    user.coinpurse.set(int(file[1].strip()))
+                    user.linen_bag.set(file[2].split(','))
                 clearing.clear()
                 menu = False
                 play = True
@@ -72,7 +73,7 @@ while running_game:
     while play:
         save()
         clearing.clear()
-        print(f"Welcome back, {user.name}. You have {user.coinpurse} in your coinpurse")
+        print(f"Welcome back, {user.name}. You have {user.coinpurse} in your coinpurse and {user.linen_bag} in your bag")
 
         user_input = input('Press e for main menu or s to steal from chest: ')
         if user_input == "e":
@@ -82,9 +83,17 @@ while running_game:
             print("\nAutosaving...")
             time.sleep(0.4)
         if user_input == "s":
-            chest = c.Chest(["rusty dagger"], 30)
-            print(chest.loose_coins)
+            old_chest = c.Chest(["rusty dagger"], 30)
+            print(old_chest.loose_coins, old_chest.loose_items)
             time.sleep(0.7)
-            chest.loot(user)
-            print(chest.loose_coins)
+            old_chest.loot(user)
+            print(old_chest.loose_coins)
             time.sleep(0.7)
+
+
+        old_chest = Chest(["rusty dagger"], 30)
+        print(old_chest.loose_coins, old_chest.loose_items)
+        print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")
+        time.sleep(2)
+        old_chest.loot(user)
+        print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")

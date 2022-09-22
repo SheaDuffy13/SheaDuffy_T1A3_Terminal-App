@@ -1,4 +1,4 @@
-
+import time
 class Money:
     def __init__(self, coins):
         self.set(coins)
@@ -22,11 +22,14 @@ class Inventory:
     def add(self, contents):
         self.contents += contents
 
+    def __str__(self):
+        return f"{self.contents}"
+
 class Player:
     def __init__(self, name):
         self.name = name
         self.coinpurse = Money(0)
-        self.linen_bag = Inventory(None)
+        self.linen_bag = Inventory([])
 
 class Chest:
     def __init__(self, items, coins):
@@ -38,3 +41,17 @@ class Chest:
         player.coinpurse.add(self.loose_coins.coins)
         self.loose_coins = 0
         player.linen_bag.add(self.loose_items.contents)
+
+
+
+#Testing Ground
+
+# user = Player("Jay")
+# user.coinpurse.set(0)
+# user.linen_bag.set([])
+# old_chest = Chest(["rusty dagger", "gold ring"], 30)
+# print(old_chest.loose_coins, old_chest.loose_items)
+# print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")
+# time.sleep(2)
+# old_chest.loot(user)
+# print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")
