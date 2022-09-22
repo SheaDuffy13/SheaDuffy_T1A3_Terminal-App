@@ -23,6 +23,9 @@ def save():
 def draw():
     print('Xx------------------------------xX')
 
+def draw2():
+    print('\nXx-------------------------------------------------------------------------------------xX\n')
+
 # Home Screen
 print('')
 print("         ><><><><><><><><><><><><")
@@ -104,9 +107,11 @@ while running_game:
     while play:
         save()
         clearing.clear()
+        draw2()
         print(f"Welcome, {user.name}. You have {user.coinpurse} in your coinpurse and {user.linen_bag} in your bag")
+        draw2()
 
-        user_input = input('m: main menu \n1: loot chest \n2: loot kitchen drawer \ni: inventory \ne: exit \n: ')
+        user_input = input('m: main menu \n1: loot chest \n2: loot kitchen drawer \ni: inventory \ne: exit \nf: fish at the old pond \n: ')
         if user_input == "m":
             play = False
             menu = True
@@ -123,13 +128,18 @@ while running_game:
             kitchen_drawer.loot(user)
             print(f"You have {user.coinpurse} coins and {user.linen_bag}")
             time.sleep(2)
+        if user_input == "f":
+            import fishing as f
+            f.fishing()
+            print(f"You came back from the trip with {f.fish} fish")
+            input()
 
         if user_input == "i":
             print('Inventory Selected')
             play = False
             INVENTORY_MENU_RUN = True
         if user_input == "e":
-            print(f"See you next time {user.name}")
+            print(f"See you next time, {user.name}")
             time.sleep(0.7)
             play = False
             running_game = False
