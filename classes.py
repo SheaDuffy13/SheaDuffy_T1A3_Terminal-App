@@ -1,4 +1,5 @@
 import time
+import ast
 class Money:
     def __init__(self, coins):
         self.set(coins)
@@ -20,7 +21,12 @@ class Inventory:
         self.contents = contents
 
     def add(self, contents):
-        self.contents += contents
+        cnts = ast.literal_eval(str(contents))
+        selfcnts = ast.literal_eval(str(self.contents))
+        selfcnts += cnts
+        # usr_inv += contents
+        # self.contents.append(contents)
+        # usr_inv += usr_inv
 
     def __str__(self):
         return f"{self.contents}"
@@ -47,8 +53,8 @@ class Chest:
 #Testing Ground
 
 # user = Player("Jay")
-# user.coinpurse.set(0)
-# user.linen_bag.set([])
+# user.coinpurse.set(30)
+# user.linen_bag.set(["rusty dagger", "gold ring"])
 # print(user.linen_bag)
 # old_chest = Chest(["rusty dagger", "gold ring"], 30)
 # print(old_chest.loose_coins, old_chest.loose_items)

@@ -1,12 +1,15 @@
 import random
 import time
 import clearing
+from simple_term_menu import TerminalMenu
+import ast
 
 import classes as c
 
 running_game = True
 menu = True
 play = False
+INVENTORY_MENU_RUN = False
 
 def save():
     save_list = [
@@ -70,20 +73,63 @@ while running_game:
         if choice == "3":
             quit()
 
+# INVENTORY MENU
+    while INVENTORY_MENU_RUN:
+        def menu_run():
+            global play
+            global INVENTORY_MENU_RUN
+            usr_inv = ast.literal_eval(str(user.linen_bag))
+            inventory_menu_items = ["back", "save & quit", ""] + usr_inv
+            inventory_menu = TerminalMenu(
+                inventory_menu_items,
+                skip_empty_entries = True,
+                clear_screen = True
+            )
+            inv_sel = inventory_menu.show()
+            if inv_sel == 0:
+                INVENTORY_MENU_RUN = False
+                play = True
+            if inv_sel == 1:
+                print("See you next time")
+                time.sleep(0.7)
+                # save()
+                quit()
+            if inv_sel >= 3:
+                print(f"A {inventory_menu_items[inv_sel]}!")
+                time.sleep(1)
+        menu_run()
+
+
+# MAIN GAME
     while play:
         save()
         clearing.clear()
         print(f"Welcome, {user.name}. You have {user.coinpurse} in your coinpurse and {user.linen_bag} in your bag")
 
-        user_input = input('Press e for main menu or s to steal from chest: ')
-        if user_input == "e":
+        user_input = input('m: main menu \n1: loot chest \n2: loot kitchen drawer \ni: inventory \ne: exit \n: ')
+        if user_input == "m":
             play = False
             menu = True
             save()
             print("\nAutosaving...")
             time.sleep(0.4)
-        if user_input == "s":
+        if user_input == "1":
             old_chest = c.Chest(["rusty dagger", "gold ring"], 30)
             print(old_chest.loose_coins, old_chest.loose_items)
             time.sleep(0.7)
             old_chest.loot(user)
+        if user_input == "2":
+            kitchen_drawer = c.Chest(["silver fork"], 0)
+            kitchen_drawer.loot(user)
+            print(f"You have {user.coinpurse} coins and {user.linen_bag}")
+            time.sleep(2)
+
+        if user_input == "i":
+            print('Inventory Selected')
+            play = False
+            INVENTORY_MENU_RUN = True
+        if user_input == "e":
+            print(f"See you next time {user.name}")
+            time.sleep(0.7)
+            play = False
+            running_game = False
