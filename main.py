@@ -15,7 +15,8 @@ def save():
     save_list = [
         user_name,
         str(user.coinpurse),
-        ''.join(str(user.linen_bag))
+        ''.join(str(user.linen_bag)),
+        str(user.fishbucket)
     ]
     with open("save.txt", "w") as f:
         f.write("\n".join(save_list))
@@ -55,6 +56,7 @@ while running_game:
             user = c.Player(user_name)
             user.coinpurse.set(0)
             user.linen_bag.set([])
+            user.fishbucket.set(0)
             menu = False
             play = True
 
@@ -63,9 +65,11 @@ while running_game:
                 with open("save.txt") as f:
                     file = f.readlines()
                     user_name = file[0].strip()
+                    usr_inv_load = ast.literal_eval(str(file[2].strip()))
                     user = c.Player(user_name)
                     user.coinpurse.set(int(file[1]))
-                    user.linen_bag.set(file[2])
+                    user.linen_bag.set(usr_inv_load)
+                    user.fishbucket.set(int(file[3]))
                 clearing.clear()
                 menu = False
                 play = True
@@ -108,8 +112,9 @@ while running_game:
         save()
         clearing.clear()
         draw2()
-        print(f"Welcome, {user.name}. You have {user.coinpurse} in your coinpurse and {user.linen_bag} in your bag")
+        print(f"{user.name} has {user.coinpurse} coins, {user.linen_bag} in bag and {user.fishbucket} fish")
         draw2()
+        input()
 
         user_input = input('m: main menu \n1: loot chest \n2: loot kitchen drawer \ni: inventory \ne: exit \nf: fish at the old pond \n: ')
         if user_input == "m":
@@ -132,6 +137,8 @@ while running_game:
             import fishing as f
             f.fishing()
             print(f"You came back from the trip with {f.fish} fish")
+            user.fishbucket.add(f.fish)
+            print(f"{user.fishbucket} in bucket")
             input()
 
         if user_input == "i":

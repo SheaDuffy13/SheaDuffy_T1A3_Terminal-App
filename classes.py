@@ -21,12 +21,14 @@ class Inventory:
         self.contents = contents
 
     def add(self, contents):
-        cnts = ast.literal_eval(str(contents))
-        selfcnts = ast.literal_eval(str(self.contents))
-        selfcnts += cnts
+        # cnts = ast.literal_eval(str(contents))
+        # selfcnts = ast.literal_eval(str(self.contents))
+        # selfcnts += cnts
         # usr_inv += contents
         # self.contents.append(contents)
         # usr_inv += usr_inv
+        # self.contents = self.contents.append(contents)
+        self.contents += contents
 
     def __str__(self):
         return f"{self.contents}"
@@ -36,6 +38,7 @@ class Player:
         self.name = name
         self.coinpurse = Money(0)
         self.linen_bag = Inventory([])
+        self.fishbucket = Money(0)
 
 class Chest:
     def __init__(self, items, coins):
