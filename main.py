@@ -47,7 +47,7 @@ while running_game:
             user_name = input('Enter your thief\'s name: ')
             user = c.Player(user_name)
             user.coinpurse.set(0)
-            # bag_list = ['rose', 'rusty dagger','baggie of strange herbs','gold ring']
+            bag_list = []
             menu = False
             play = True
 
@@ -58,6 +58,7 @@ while running_game:
                     user_name = file[0].strip()
                     user = c.Player(user_name)
                     user.coinpurse.set(int(file[1]))
+                    # user.linen_bag.set(int(file[2]))
                 clearing.clear()
                 menu = False
                 play = True
