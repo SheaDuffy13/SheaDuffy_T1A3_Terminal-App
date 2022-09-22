@@ -49,6 +49,7 @@ class Chest:
 # user = Player("Jay")
 # user.coinpurse.set(0)
 # user.linen_bag.set([])
+# print(user.linen_bag)
 # old_chest = Chest(["rusty dagger", "gold ring"], 30)
 # print(old_chest.loose_coins, old_chest.loose_items)
 # print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")

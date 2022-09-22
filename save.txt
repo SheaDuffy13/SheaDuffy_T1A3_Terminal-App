@@ -1,0 +1,3 @@
+Seth
+30
+['rusty dagger', 'gold ring']
