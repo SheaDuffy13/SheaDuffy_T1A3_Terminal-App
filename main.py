@@ -48,7 +48,6 @@ while running_game:
 
         if choice == "1":
             clearing.clear()
-            print(art.hobbithole_art)
             user_name = input('Enter your name: ')
             user = c.Player(user_name)
             user.coinpurse.set(0)
@@ -56,13 +55,13 @@ while running_game:
             user.fishbucket.set(0)
             clearing.clear()
             art.draw2()
-            print(f" Welcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.")
+            print(f"\n Welcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.\n")
             art.draw2()
             input("\ncontinue..")
-            clearing.clear()
-            print(art.hobbithole_art)
-            print(f"\nYou are feeling particularly poor tonight, so it's time for an adventure.. You head out the door \n")
-            input("\ncontinue..")
+            # clearing.clear()
+            # print(art.hobbithole_art)
+            # print(f"\nYou are feeling particularly poor tonight, so it's time for an adventure.. You head out the door \n")
+            # input("\ncontinue..")
             menu = False
             play = True
 
@@ -138,7 +137,6 @@ while running_game:
 
         if user_input == "c":
             while True:
-                # c.kitchen_drawer.loot(user)
                 clearing.clear()
                 print(art.cabin_art)
                 art.draw2()
@@ -153,13 +151,13 @@ while running_game:
                         print("You slipped into the cabin and see 3 old chests in the corner.\n \n1: open 1st chest \n2: open 2nd chest \n3: open 3rd chest \ne: leave\n")
                         cinput = input(": ")
                         if cinput == "1":
-                            c.kitchen_drawer.loot(user)
+                            c.old_chest1.loot(user)
                             continue
                         if cinput == "2":
-                            # c.chest.loot(user)
+                            c.old_chest2.loot(user)
                             continue
                         if cinput == "3":
-                            # c.chest.loot(user)
+                            c.old_chest3.loot(user)
                             continue
                         if cinput == "e":
                             CABIN = False
@@ -171,10 +169,10 @@ while running_game:
             f.fishing()
             clearing.clear()
             print(art.road_art)
-            print(f"You came back from the trip with {f.fish} fish")
+            print(f"You came back from the trip with {f.fish} fish..")
             user.fishbucket.add(f.fish)
-            print(f"{user.fishbucket} total in inventory")
-            input("continue..")
+            print(f"{user.fishbucket} total in inventory..")
+            input("\n\ncontinue..")
 
         if user_input == "i":
             print('Inventory Selected')

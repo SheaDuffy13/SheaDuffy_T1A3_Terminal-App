@@ -6,9 +6,6 @@ import fish_art as fa
 
 fish = 0
 
-def draw():
-    print('\nXx--------------------------------------------------------xX\n')
-
 def fishing():
     while True:
         def cast():
@@ -28,10 +25,8 @@ def fishing():
                     rand_fish = random.choice(fa.fish_art)
                     print(f"You got a fish! \n{rand_fish}")
                     if rand_fish == fa.fish1:
-                        print("This fish seems a little strange.. better not eat it..")
-                    # print(random.choice(fa.fish_art))
-                    # time.sleep(1)
-                    input("continue..")
+                        print("This fish seems a little strange.. better not eat it")
+                    input("\n\ncontinue..")
                     break
             if '!!' not in sample:
                 print('No fish..')
@@ -40,14 +35,11 @@ def fishing():
 
         clearing.clear()
         print(art.lake_art)
-        # draw()
-        print(" You\'ve approach a murky pond and set up your rod\n")
+        print(" You\'ve approach a murky pond and set up your rod. Something seems a little off about the water.. almost as if it has a green glow\n")
         print(" f: to fish \n i: to check fish bucket \n e: to end session")
-        # draw()
-        menu_choice = input(': ')
+        menu_choice = input(':')
         if menu_choice == 'f':
             clearing.clear()
-            # print(art.lake_art)
             print(art.fishingline_art)
             cast()
         if menu_choice == 'i':

@@ -24,7 +24,6 @@ class Inventory:
         self.contents = contents
 
     def add(self, contents):
-        # self.contents = self.contents.append(contents)
         self.contents += contents
 
     def __str__(self):
@@ -60,16 +59,19 @@ class Chest:
             print("\nAlready looted")
             time.sleep(1.2)
 
-old_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens"]
-olditems = random.choices(old_items, k = random.randint(0,4))
-rcoins = random.randint(0, 100)
+chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
+               "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
+               "a worn book titled: The Lusty Argonian Maid", "aged wine", "emerald ring", "pearl earrings", 
+               "silver fork", "bottle of rum", "hunting bow", "silver ring", "a cabbage", "small animal skull"]
+randitems = random.sample(chest_items, k = random.randint(2,6))
+rcoins = random.randint(0, 80)
 
-old_chest = Chest(olditems, rcoins)
-old_chest2 = Chest(["rusty dagger", "gold ring"], 30)
-kitchen_drawer = Chest(["silver fork"], 0)
+old_chest1 = Chest(randitems, rcoins)
+old_chest2 = Chest(randitems, rcoins)
+old_chest3 = Chest(randitems, rcoins)
 
-print(old_chest.loose_items)
-print(old_chest.loose_coins)
+print(old_chest1.loose_items, old_chest1.loose_coins)
+# print(old_chest2.loose_items, old_chest2.loose_coins)
 
 
 #Testing Ground
