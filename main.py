@@ -12,6 +12,7 @@ running_game = True
 menu = True
 play = False
 INVENTORY_MENU_RUN = False
+CABIN = False
 
 def save():
     save_list = [
@@ -113,7 +114,7 @@ while running_game:
         # input()
         print(art.mountain_art)
 
-        print("\n1: loot chest   2: loot kitchen drawer   f: fish at the old pond                 i: inventory    m: main menu    e: exit")
+        print("\n1: loot chest   2: go to cabin   f: fish at the old pond                 i: inventory    m: main menu    e: exit")
         user_input = input("\n: ")
         if user_input == "m":
             play = False
@@ -126,8 +127,29 @@ while running_game:
             c.old_chest2.loot(user)
 
         if user_input == "2":
-            # c.kitchen_drawer.loot(user)
-            
+            while True:
+                # c.kitchen_drawer.loot(user)
+                clearing.clear()
+                print(art.cabin_art)
+                art.draw2()
+                print("You've approached a lone cabin. It looks like no one is home. \na to approach or e to go back")
+                art.draw2()
+                cinput = input(": ")
+                if cinput == "a":
+                    CABIN = True
+                    while CABIN:
+                        clearing.clear()
+                        print(art.room_art)
+                        print("You/'ve slipped into the cabin and see an old chest in the corner.\n \no: open chest \ne: leave")
+                        cinput = input(": ")
+                        if cinput == "o":
+                            c.kitchen_drawer.loot(user)
+                            continue
+                        if cinput == "e":
+                            CABIN = False
+                else:
+                    break
+
         if user_input == "f":
             import fishing as f
             f.fishing()
