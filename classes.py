@@ -59,6 +59,12 @@ class Chest:
             print("\nAlready looted")
             time.sleep(1.2)
 
+def home_screen_img():
+    print(art.moon_art)
+    print('')
+    print("    ><><><><><><><><><><><><")
+    print("    ><><> Master Thief <><><")
+    print("    ><><><><><><><><><><><><")
 
 def randloot():
     chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",

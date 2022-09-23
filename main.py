@@ -26,18 +26,13 @@ def save():
 
 # Home Screen
 clearing.clear()
-print(art.moon_art)
-print('')
-print("    ><><><><><><><><><><><><")
-print("    ><><> Master Thief <><><")
-print("    ><><><><><><><><><><><><")
-input("\n    Press Enter to continue... ")
+c.home_screen_img()
+input("\n    Press Enter to continue... \n")
 clearing.clear()
 
 # Main Program
 while RUNNING_GAME:
     while MENU:
-        clearing.clear()
         art.draw()
         print(" 1. NEW GAME")
         print(" 2. LOAD GAME")
@@ -65,7 +60,7 @@ while RUNNING_GAME:
             MENU = False
             PLAY = True
 
-        if choice == "2":
+        elif choice == "2":
             try:
                 with open("save.txt") as sf:
                     file = sf.readlines()
@@ -83,12 +78,16 @@ while RUNNING_GAME:
                 print("Save file not available..")
                 input("\ncontinue..")
 
-        if choice == "3":
+        elif choice == "3":
             clearing.clear()
             print(art.road_art)
             print("Aight Imma head out..\n")
             time.sleep(0.7)
             quit()
+        else:
+            print("\nType the number of your preferred option then press Enter..")
+            time.sleep(2)
+            clearing.clear()
 
 # INVENTORY MENU
     while INVENTORY_MENU_RUN:
@@ -154,6 +153,11 @@ while RUNNING_GAME:
                         else:
                             continue
                 elif cinput == "e":
+                    CABIN = False
+                    clearing.clear()
+                    print(art.road_art)
+                    print("time to head back..")
+                    time.sleep(1.4)
                     break
                 else:
                     continue
