@@ -2,6 +2,7 @@ import time
 import random
 import clearing
 import art
+import fish_art as fa
 
 fish = 0
 
@@ -18,9 +19,15 @@ def fishing():
                 print(char)
                 time.sleep(0.5)
                 if char == '!!':
+                    clearing.clear()
                     fish += 1
-                    print('You got a fish!')
-                    time.sleep(1)
+                    rand_fish = random.choice(fa.fish_art)
+                    print(f"You got a fish! \n{rand_fish}")
+                    if rand_fish == fa.fish1:
+                        print("This fish seems a little strange.. better not eat it..")
+                    # print(random.choice(fa.fish_art))
+                    # time.sleep(1)
+                    input()
                     break
             if '!!' not in sample:
                 print('No fish..')
@@ -36,12 +43,14 @@ def fishing():
         menu_choice = input(': ')
         if menu_choice == 'f':
             clearing.clear()
-            art.lake_art()
+            # print(art.lake_art)
+            print(art.fishingline_art)
             cast()
         if menu_choice == 'i':
             clearing.clear()
-            art.lake_art()
-            print(f'\nYou have {fish} fish')
+            print(art.lake_art)
+            print(f'\nYou have {fish} fish in you bucket')
+            print(art.bucket_art)
             input()
         if menu_choice == 'e':
             return fish
