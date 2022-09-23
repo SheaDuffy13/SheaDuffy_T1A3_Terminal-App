@@ -24,7 +24,7 @@ def save():
         sf.write("\n".join(save_list))
 
 # Home Screen
-art.moon_art()
+art.moon_art
 print('')
 print("         ><><><><><><><><><><><><")
 print("         ><><> Master Thief <><><")
@@ -112,7 +112,7 @@ while running_game:
         print(f"{user.name} has {user.coinpurse} coins, {user.linen_bag} in bag and {user.fishbucket} fish")
         art.draw2()
         input()
-        art.mountain_art()
+        print(art.mountain_art)
 
         user_input = input('m: main menu \n1: loot chest \n2: loot kitchen drawer \ni: inventory \ne: exit \nf: fish at the old pond \n: ')
         if user_input == "m":
@@ -121,19 +121,17 @@ while running_game:
             save()
             print("\nAutosaving...")
             time.sleep(0.4)
+
         if user_input == "1":
-            old_chest = c.Chest(["rusty dagger", "gold ring"], 30)
-            print(old_chest.loose_coins, old_chest.loose_items)
-            time.sleep(0.7)
-            old_chest.loot(user)
+            c.old_chest2.loot(user)
+
         if user_input == "2":
-            kitchen_drawer = c.Chest(["silver fork"], 0)
-            kitchen_drawer.loot(user)
-            print(f"You have {user.coinpurse} coins and {user.linen_bag}")
-            time.sleep(2)
+            c.kitchen_drawer.loot(user)
+
         if user_input == "f":
             import fishing as f
             f.fishing()
+            clearing.clear()
             print(f"You came back from the trip with {f.fish} fish")
             user.fishbucket.add(f.fish)
             print(f"{user.fishbucket} in bucket")

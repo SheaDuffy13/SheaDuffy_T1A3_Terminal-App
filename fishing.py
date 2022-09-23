@@ -1,6 +1,7 @@
 import time
 import random
 import clearing
+import art
 
 fish = 0
 
@@ -10,7 +11,6 @@ def draw():
 def fishing():
     while True:
         def cast():
-            clearing.clear()
             text = ['..', '..', '!!', '..', '..', '..']
             sample = random.sample(text, k=5)
             global fish
@@ -28,15 +28,20 @@ def fishing():
                 return
 
         clearing.clear()
+        print(art.lake_art)
         draw()
         print(" You\'ve approach a murky pond and set up your rod\n")
         print(" f: to fish \n i: to check fish bucket \n e: to end session")
         draw()
         menu_choice = input(': ')
         if menu_choice == 'f':
+            clearing.clear()
+            art.lake_art()
             cast()
         if menu_choice == 'i':
-            print(f'You have {fish} fish')
+            clearing.clear()
+            art.lake_art()
+            print(f'\nYou have {fish} fish')
             input()
         if menu_choice == 'e':
             return fish
