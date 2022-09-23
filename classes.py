@@ -1,4 +1,5 @@
 import time
+import random
 import ast
 class Money:
     def __init__(self, coins):
@@ -21,12 +22,6 @@ class Inventory:
         self.contents = contents
 
     def add(self, contents):
-        # cnts = ast.literal_eval(str(contents))
-        # selfcnts = ast.literal_eval(str(self.contents))
-        # selfcnts += cnts
-        # usr_inv += contents
-        # self.contents.append(contents)
-        # usr_inv += usr_inv
         # self.contents = self.contents.append(contents)
         self.contents += contents
 
@@ -51,6 +46,13 @@ class Chest:
         self.loose_coins = 0
         player.linen_bag.add(self.loose_items.contents)
 
+old_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens"]
+olditems = random.choices(old_items, k = random.randint(0,4))
+rcoins = random.randint(0, 100)
+
+old_chest = Chest(olditems, rcoins)
+print(old_chest.loose_items)
+print(old_chest.loose_coins)
 
 
 #Testing Ground

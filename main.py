@@ -4,7 +4,9 @@ import clearing
 from simple_term_menu import TerminalMenu
 import ast
 
+#other pages
 import classes as c
+import art
 
 running_game = True
 menu = True
@@ -18,16 +20,11 @@ def save():
         ''.join(str(user.linen_bag)),
         str(user.fishbucket)
     ]
-    with open("save.txt", "w") as f:
-        f.write("\n".join(save_list))
-
-def draw():
-    print('Xx------------------------------xX')
-
-def draw2():
-    print('\nXx-------------------------------------------------------------------------------------xX\n')
+    with open("save.txt", "w") as sf:
+        sf.write("\n".join(save_list))
 
 # Home Screen
+art.moon_art()
 print('')
 print("         ><><><><><><><><><><><><")
 print("         ><><> Master Thief <><><")
@@ -43,11 +40,11 @@ else:
 while running_game:
     while menu:
         clearing.clear()
-        draw()
+        art.draw()
         print(" 1. NEW GAME")
         print(" 2. LOAD GAME")
         print(" 3. QUIT GAME")
-        draw()
+        art.draw()
         print("")
         choice = input('Select number: ')
 
@@ -62,8 +59,8 @@ while running_game:
 
         if choice == "2":
             try:
-                with open("save.txt") as f:
-                    file = f.readlines()
+                with open("save.txt") as sf:
+                    file = sf.readlines()
                     user_name = file[0].strip()
                     usr_inv_load = ast.literal_eval(str(file[2].strip()))
                     user = c.Player(user_name)
@@ -111,10 +108,11 @@ while running_game:
     while play:
         save()
         clearing.clear()
-        draw2()
+        art.draw2()
         print(f"{user.name} has {user.coinpurse} coins, {user.linen_bag} in bag and {user.fishbucket} fish")
-        draw2()
+        art.draw2()
         input()
+        art.mountain_art()
 
         user_input = input('m: main menu \n1: loot chest \n2: loot kitchen drawer \ni: inventory \ne: exit \nf: fish at the old pond \n: ')
         if user_input == "m":

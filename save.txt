@@ -1,4 +1,4 @@
 Seth
-90
-['rusty dagger', 'gold ring', 'silver fork', 'rusty dagger', 'gold ring', 'silver fork', 'rusty dagger', 'gold ring']
-4
+60
+['rusty dagger', 'gold ring', 'silver fork', 'rusty dagger', 'gold ring']
+0
