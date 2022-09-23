@@ -15,6 +15,10 @@ def fishing():
             text = ['..', '..', '!!', '..', '..', '..']
             sample = random.sample(text, k=5)
             global fish
+            print("..")
+            time.sleep(0.5)
+            print("..")
+            time.sleep(0.5)
             for char in sample:
                 print(char)
                 time.sleep(0.5)
@@ -27,7 +31,7 @@ def fishing():
                         print("This fish seems a little strange.. better not eat it..")
                     # print(random.choice(fa.fish_art))
                     # time.sleep(1)
-                    input()
+                    input("continue..")
                     break
             if '!!' not in sample:
                 print('No fish..')
@@ -36,10 +40,10 @@ def fishing():
 
         clearing.clear()
         print(art.lake_art)
-        draw()
+        # draw()
         print(" You\'ve approach a murky pond and set up your rod\n")
         print(" f: to fish \n i: to check fish bucket \n e: to end session")
-        draw()
+        # draw()
         menu_choice = input(': ')
         if menu_choice == 'f':
             clearing.clear()
@@ -51,6 +55,6 @@ def fishing():
             print(art.lake_art)
             print(f'\nYou have {fish} fish in you bucket')
             print(art.bucket_art)
-            input()
+            input("continue..")
         if menu_choice == 'e':
             return fish

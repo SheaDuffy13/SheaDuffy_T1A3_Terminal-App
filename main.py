@@ -31,8 +31,7 @@ print('')
 print("    ><><><><><><><><><><><><")
 print("    ><><> Master Thief <><><")
 print("    ><><><><><><><><><><><><")
-print()
-home_input = input("    Press Enter to continue... ")
+input("\n    Press Enter to continue... ")
 clearing.clear()
 
 # Main Program
@@ -48,11 +47,22 @@ while running_game:
         choice = input('Select number: ')
 
         if choice == "1":
-            user_name = input('Enter your thief\'s name: ')
+            clearing.clear()
+            print(art.hobbithole_art)
+            user_name = input('Enter your name: ')
             user = c.Player(user_name)
             user.coinpurse.set(0)
             user.linen_bag.set([])
             user.fishbucket.set(0)
+            clearing.clear()
+            art.draw2()
+            print(f" Welcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.")
+            art.draw2()
+            input("\ncontinue..")
+            clearing.clear()
+            print(art.hobbithole_art)
+            print(f"\nYou are feeling particularly poor tonight, so it's time for an adventure.. You head out the door \n")
+            input("\ncontinue..")
             menu = False
             play = True
 
@@ -70,10 +80,15 @@ while running_game:
                 menu = False
                 play = True
             except OSError:
+                clearing.clear()
                 print("Save file not available..")
-                input("Press enter to go back: ")
+                input("\ncontinue..")
 
         if choice == "3":
+            clearing.clear()
+            print(art.road_art)
+            print("Aight Imma head out..\n")
+            time.sleep(0.7)
             quit()
 
 # INVENTORY MENU
@@ -108,31 +123,26 @@ while running_game:
     while play:
         save()
         clearing.clear()
-        art.draw2()
-        # print(f"{user.name} has {user.coinpurse} coins, {user.linen_bag} in bag and {user.fishbucket} fish")
-        art.draw2()
-        # input()
         print(art.mountain_art)
-
-        print("\n1: loot chest   2: go to cabin   f: fish at the old pond                 i: inventory    m: main menu    e: exit")
-        user_input = input("\n: ")
+        print(f"You stand at a crossroads in the mountains. Upon checking your coinpurse you have {user.coinpurse} coins. You see a lake in one direction and a cabin in another.")
+        print("\nc: go to cabin  \nf: fish at the lake          m: main menu \ni: inventory                 e: exit game")
+        user_input = input("\n:")
         if user_input == "m":
             play = False
             menu = True
             save()
-            print("\nAutosaving...")
             time.sleep(0.4)
 
-        if user_input == "1":
-            c.old_chest2.loot(user)
+        # if user_input == "1":
+        #     c.old_chest2.loot(user)
 
-        if user_input == "2":
+        if user_input == "c":
             while True:
                 # c.kitchen_drawer.loot(user)
                 clearing.clear()
                 print(art.cabin_art)
                 art.draw2()
-                print("You've approached a lone cabin. It looks like no one is home. \na to approach or e to go back")
+                print(" You've approached a lone cabin. It looks like no one is home. \n a: to approach or \n e: to go back")
                 art.draw2()
                 cinput = input(": ")
                 if cinput == "a":
@@ -140,10 +150,16 @@ while running_game:
                     while CABIN:
                         clearing.clear()
                         print(art.room_art)
-                        print("You/'ve slipped into the cabin and see an old chest in the corner.\n \no: open chest \ne: leave")
+                        print("You slipped into the cabin and see 3 old chests in the corner.\n \n1: open 1st chest \n2: open 2nd chest \n3: open 3rd chest \ne: leave\n")
                         cinput = input(": ")
-                        if cinput == "o":
+                        if cinput == "1":
                             c.kitchen_drawer.loot(user)
+                            continue
+                        if cinput == "2":
+                            # c.chest.loot(user)
+                            continue
+                        if cinput == "3":
+                            # c.chest.loot(user)
                             continue
                         if cinput == "e":
                             CABIN = False
@@ -158,14 +174,16 @@ while running_game:
             print(f"You came back from the trip with {f.fish} fish")
             user.fishbucket.add(f.fish)
             print(f"{user.fishbucket} total in inventory")
-            input()
+            input("continue..")
 
         if user_input == "i":
             print('Inventory Selected')
             play = False
             INVENTORY_MENU_RUN = True
         if user_input == "e":
-            print(f"See you next time, {user.name}")
+            clearing.clear()
+            print(art.road_art)
+            print("Aight Imma head out..\n")
             time.sleep(0.7)
             play = False
             running_game = False
