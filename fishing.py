@@ -35,7 +35,7 @@ def fishing():
 
         clearing.clear()
         print(art.lake_art)
-        print(" You\'ve approach a murky pond and set up your rod. Something seems a little off about the water.. almost as if it has a green glow\n")
+        print(" You\'ve approached a murky pond and set up your rod. Something seems a little off about the water.. almost as if it has a green glow\n")
         print(" f: to fish \n i: to check fish bucket \n e: to end session")
         menu_choice = input(':')
         if menu_choice == 'f':

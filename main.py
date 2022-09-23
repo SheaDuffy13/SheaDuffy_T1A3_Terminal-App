@@ -153,14 +153,16 @@ while running_game:
                         if cinput == "1":
                             c.old_chest1.loot(user)
                             continue
-                        if cinput == "2":
+                        elif cinput == "2":
                             c.old_chest2.loot(user)
                             continue
-                        if cinput == "3":
+                        elif cinput == "3":
                             c.old_chest3.loot(user)
                             continue
-                        if cinput == "e":
+                        elif cinput == "e":
                             CABIN = False
+                        else:
+                            continue
                 else:
                     break
 

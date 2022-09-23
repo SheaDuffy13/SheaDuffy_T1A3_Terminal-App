@@ -59,18 +59,24 @@ class Chest:
             print("\nAlready looted")
             time.sleep(1.2)
 
-chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
-               "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
-               "a worn book titled: The Lusty Argonian Maid", "aged wine", "emerald ring", "pearl earrings", 
-               "silver fork", "bottle of rum", "hunting bow", "silver ring", "a cabbage", "small animal skull"]
-randitems = random.sample(chest_items, k = random.randint(2,6))
-rcoins = random.randint(0, 80)
 
-old_chest1 = Chest(randitems, rcoins)
-old_chest2 = Chest(randitems, rcoins)
-old_chest3 = Chest(randitems, rcoins)
+def randloot():
+    chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
+                "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
+                "a worn book titled: The Lusty Argonian Maid", "aged wine", "emerald ring", "pearl earrings", 
+                "silver fork", "bottle of rum", "hunting bow", "silver ring", "a cabbage", "small animal skull"]
+    randloot.randitems = random.sample(chest_items, k = random.randint(2,6))
+    randloot.rcoins = random.randint(0, 80)
+    return randloot.rcoins, randloot.randitems
 
-print(old_chest1.loose_items, old_chest1.loose_coins)
+randloot()
+old_chest1 = Chest(randloot.randitems, randloot.rcoins)
+randloot()
+old_chest2 = Chest(randloot.randitems, randloot.rcoins)
+randloot()
+old_chest3 = Chest(randloot.randitems, randloot.rcoins)
+
+# print(old_chest1.loose_items, old_chest1.loose_coins)
 # print(old_chest2.loose_items, old_chest2.loose_coins)
 
 

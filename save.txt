@@ -1,4 +1,4 @@
 Seth
-156
-['silver ring', 'a worn book titled: The Lusty Argonian Maid', 'silver ring', 'a worn book titled: The Lusty Argonian Maid', 'silver ring', 'a worn book titled: The Lusty Argonian Maid']
-3
+112
+['gold ring', 'bottle of rum', 'hunting bow', 'silver fork', 'moldy bread roll', 'hunting bow', 'rusty dagger', 'silver ring', 'small animal skull', 'gold ring', 'hunting bow']
+0
