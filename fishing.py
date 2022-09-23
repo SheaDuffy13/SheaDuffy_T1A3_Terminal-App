@@ -42,11 +42,13 @@ def fishing():
             clearing.clear()
             print(art.fishingline_art)
             cast()
-        if menu_choice == 'i':
+        elif menu_choice == 'i':
             clearing.clear()
             print(art.lake_art)
             print(f'\nYou have {fish} fish in you bucket')
             print(art.bucket_art)
             input("continue..")
-        if menu_choice == 'e':
+        elif menu_choice == 'e':
             return fish
+        else:
+            continue

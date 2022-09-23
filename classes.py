@@ -49,7 +49,7 @@ class Chest:
         print("\nYou investigate the chest...")
         time.sleep(1)
         try:
-            print(f"You found {self.loose_coins.coins} coins and {self.loose_items.contents}")
+            print(f"\nYou found: {', '.join(self.loose_items.contents)} and {self.loose_coins.coins} coins")
             input()
             player.coinpurse.add(self.loose_coins.coins)
             self.loose_coins = 0
@@ -63,8 +63,8 @@ class Chest:
 def randloot():
     chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
                 "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
-                "a worn book titled: The Lusty Argonian Maid", "aged wine", "emerald ring", "pearl earrings", 
-                "silver fork", "bottle of rum", "hunting bow", "silver ring", "a cabbage", "small animal skull"]
+                "a worn book", "aged wine", "emerald ring", "pearl earrings", 
+                "silver fork", "bottle of rum", "silver ring", "a cabbage", "small animal skull"]
     randloot.randitems = random.sample(chest_items, k = random.randint(2,6))
     randloot.rcoins = random.randint(0, 80)
     return randloot.rcoins, randloot.randitems
@@ -75,6 +75,9 @@ randloot()
 old_chest2 = Chest(randloot.randitems, randloot.rcoins)
 randloot()
 old_chest3 = Chest(randloot.randitems, randloot.rcoins)
+
+print(old_chest2.loose_items)
+print(', '.join(old_chest2.loose_items.contents))
 
 # print(old_chest1.loose_items, old_chest1.loose_coins)
 # print(old_chest2.loose_items, old_chest2.loose_coins)

@@ -163,10 +163,12 @@ while running_game:
                             CABIN = False
                         else:
                             continue
-                else:
+                elif cinput == "e":
                     break
+                else:
+                    continue
 
-        if user_input == "f":
+        elif user_input == "f":
             import fishing as f
             f.fishing()
             clearing.clear()
@@ -176,14 +178,15 @@ while running_game:
             print(f"{user.fishbucket} total in inventory..")
             input("\n\ncontinue..")
 
-        if user_input == "i":
+        elif user_input == "i":
             print('Inventory Selected')
             play = False
             INVENTORY_MENU_RUN = True
-        if user_input == "e":
+        elif user_input == "e":
             clearing.clear()
             print(art.road_art)
             print("Aight Imma head out..\n")
             time.sleep(0.7)
             play = False
             running_game = False
+        else: continue
