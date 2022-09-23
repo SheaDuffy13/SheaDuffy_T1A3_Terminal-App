@@ -1,4 +1,4 @@
 Seth
-0
-[]
+17
+['silver fork', 'emerald ring', 'silver ring', 'small animal skull', 'silver necklace']
 0

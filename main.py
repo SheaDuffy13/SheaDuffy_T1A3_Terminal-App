@@ -8,9 +8,9 @@ import ast
 import classes as c
 import art
 
-running_game = True
-menu = True
-play = False
+RUNNING_GAME = True
+MENU = True
+PLAY = False
 INVENTORY_MENU_RUN = False
 CABIN = False
 
@@ -35,8 +35,8 @@ input("\n    Press Enter to continue... ")
 clearing.clear()
 
 # Main Program
-while running_game:
-    while menu:
+while RUNNING_GAME:
+    while MENU:
         clearing.clear()
         art.draw()
         print(" 1. NEW GAME")
@@ -62,8 +62,8 @@ while running_game:
             # print(art.hobbithole_art)
             # print(f"\nYou are feeling particularly poor tonight, so it's time for an adventure.. You head out the door \n")
             # input("\ncontinue..")
-            menu = False
-            play = True
+            MENU = False
+            PLAY = True
 
         if choice == "2":
             try:
@@ -76,8 +76,8 @@ while running_game:
                     user.linen_bag.set(usr_inv_load)
                     user.fishbucket.set(int(file[3]))
                 clearing.clear()
-                menu = False
-                play = True
+                MENU = False
+                PLAY = True
             except OSError:
                 clearing.clear()
                 print("Save file not available..")
@@ -92,34 +92,24 @@ while running_game:
 
 # INVENTORY MENU
     while INVENTORY_MENU_RUN:
-        def menu_run():
-            global play
-            global INVENTORY_MENU_RUN
-            usr_inv = ast.literal_eval(str(user.linen_bag))
-            inventory_menu_items = ["back", ""] + usr_inv
-            inventory_menu = TerminalMenu(
-                inventory_menu_items,
-                title = "Inventory\n",
-                skip_empty_entries = True,
-                clear_screen = True
-            )
-            inv_sel = inventory_menu.show()
-            if inv_sel == 0:
-                INVENTORY_MENU_RUN = False
-                play = True
-            # if inv_sel == 1:
-            #     print("See you next time")
-            #     time.sleep(0.7)
-            #     # save()
-            #     quit()
-            if inv_sel >= 2:
-                print(f"A {inventory_menu_items[inv_sel]}!")
-                time.sleep(1)
-        menu_run()
-
+        usr_inv = ast.literal_eval(str(user.linen_bag))
+        inventory_menu_items = ["back", ""] + usr_inv
+        inventory_menu = TerminalMenu(
+            inventory_menu_items,
+            title = "Inventory\n",
+            skip_empty_entries = True,
+            clear_screen = True
+        )
+        inv_sel = inventory_menu.show()
+        if inv_sel == 0:
+            INVENTORY_MENU_RUN = False
+            PLAY = True
+        if inv_sel >= 2:
+            print(f"A {inventory_menu_items[inv_sel]}!")
+            time.sleep(1)
 
 # MAIN GAME
-    while play:
+    while PLAY:
         save()
         clearing.clear()
         print(art.mountain_art)
@@ -127,8 +117,8 @@ while running_game:
         print("\nc: go to cabin  \nf: fish at the lake          m: main menu \ni: inventory                 e: exit game")
         user_input = input("\n:")
         if user_input == "m":
-            play = False
-            menu = True
+            PLAY = False
+            MENU = True
             save()
             time.sleep(0.4)
 
@@ -180,13 +170,13 @@ while running_game:
 
         elif user_input == "i":
             print('Inventory Selected')
-            play = False
+            PLAY = False
             INVENTORY_MENU_RUN = True
         elif user_input == "e":
             clearing.clear()
             print(art.road_art)
             print("Aight Imma head out..\n")
             time.sleep(0.7)
-            play = False
-            running_game = False
+            PLAY = False
+            RUNNING_GAME = False
         else: continue
