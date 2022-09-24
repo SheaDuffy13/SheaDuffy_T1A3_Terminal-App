@@ -1,4 +1,4 @@
 Seth
-62
-['silver fork', 'emerald ring', 'silver ring', 'small animal skull', 'silver necklace', 'rusty dagger', 'moth-eaten linens', 'silver necklace', 'silver ring', 'gold ring', 'baggie of strange herbs']
-4
+0
+[]
+0

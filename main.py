@@ -50,9 +50,7 @@ while RUNNING_GAME:
             user.linen_bag.set([])
             user.fishbucket.set(0)
             clearing.clear()
-            art.draw2()
             print(f"\n Welcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.\n")
-            art.draw2()
             input("\ncontinue..")
             MENU = False
             PLAY = True
@@ -104,6 +102,8 @@ while RUNNING_GAME:
             PLAY = True
         if inv_sel >= 2:
             print(f"A {inventory_menu_items[inv_sel]}!")
+            if inventory_menu_items[inv_sel] == "gold ring":
+                print("\nthe precious..")
             time.sleep(1)
 
     # MAIN GAME
