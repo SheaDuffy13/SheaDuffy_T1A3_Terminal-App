@@ -1,4 +1,4 @@
 Seth
-0
-[]
+45
+['moth-eaten linens', 'silver fork']
 0

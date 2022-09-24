@@ -89,7 +89,7 @@ while RUNNING_GAME:
     # INVENTORY MENU
     while INVENTORY_MENU_RUN:
         usr_inv = ast.literal_eval(str(user.linen_bag))
-        inventory_menu_items = ["back", ""] + usr_inv
+        inventory_menu_items = ["back", "", f"{user.fishbucket} fish"] + usr_inv
         inventory_menu = TerminalMenu(
             inventory_menu_items,
             title = "Inventory\n",
@@ -100,11 +100,11 @@ while RUNNING_GAME:
         if inv_sel == 0:
             INVENTORY_MENU_RUN = False
             PLAY = True
-        if inv_sel >= 2:
-            print(f"A {inventory_menu_items[inv_sel]}!")
+        if inv_sel >= 3:
+            print(f"\n{user_name}'s newly aquired {inventory_menu_items[inv_sel]}.. \n\nMaybe this will fetch some coins")
             if inventory_menu_items[inv_sel] == "gold ring":
                 print("\nthe precious..")
-            time.sleep(1)
+            input("\n\ncontinue..")
 
     # MAIN GAME
     while PLAY:
@@ -124,10 +124,8 @@ while RUNNING_GAME:
             while True:
                 clearing.clear()
                 print(art.cabin_art)
-                art.draw2()
                 print(" You've approached a lone cabin. It looks like no one is home. \n a: to approach or \n e: to go back")
-                art.draw2()
-                cinput = input(": ")
+                cinput = input("\n :")
                 if cinput == "a":
                     CABIN = True
                     while CABIN:
