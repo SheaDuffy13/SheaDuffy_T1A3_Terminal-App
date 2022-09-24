@@ -41,6 +41,7 @@ while RUNNING_GAME:
         print("")
         choice = input('Select number: ')
 
+        #New Game
         if choice == "1":
             clearing.clear()
             user_name = input('Enter your name: ')
@@ -56,6 +57,7 @@ while RUNNING_GAME:
             MENU = False
             PLAY = True
 
+        #Load Game
         elif choice == "2":
             try:
                 with open("save.txt") as sf:
@@ -74,6 +76,7 @@ while RUNNING_GAME:
                 print("Save file not available..")
                 input("\ncontinue..")
 
+        #Exit Game
         elif choice == "3":
             clearing.clear()
             print(art.road_art)
@@ -85,7 +88,7 @@ while RUNNING_GAME:
             time.sleep(2)
             clearing.clear()
 
-# INVENTORY MENU
+    # INVENTORY MENU
     while INVENTORY_MENU_RUN:
         usr_inv = ast.literal_eval(str(user.linen_bag))
         inventory_menu_items = ["back", ""] + usr_inv
@@ -103,7 +106,7 @@ while RUNNING_GAME:
             print(f"A {inventory_menu_items[inv_sel]}!")
             time.sleep(1)
 
-# MAIN GAME
+    # MAIN GAME
     while PLAY:
         save()
         clearing.clear()
@@ -154,7 +157,7 @@ while RUNNING_GAME:
                     break
                 else:
                     continue
-
+        #Run Fishing
         elif user_input == "f":
             import fishing as f
             f.fishing()
@@ -165,8 +168,8 @@ while RUNNING_GAME:
             print(f"{user.fishbucket} total in inventory..")
             input("\n\ncontinue..")
 
+        #Open Inventory
         elif user_input == "i":
-            print('Inventory Selected')
             PLAY = False
             INVENTORY_MENU_RUN = True
         elif user_input == "e":
