@@ -4,7 +4,7 @@ import clearing
 from simple_term_menu import TerminalMenu
 import ast
 
-#other pages
+#pages
 import classes as c
 import art
 
@@ -53,10 +53,6 @@ while RUNNING_GAME:
             print(f"\n Welcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.\n")
             art.draw2()
             input("\ncontinue..")
-            # clearing.clear()
-            # print(art.hobbithole_art)
-            # print(f"\nYou are feeling particularly poor tonight, so it's time for an adventure.. You head out the door \n")
-            # input("\ncontinue..")
             MENU = False
             PLAY = True
 
@@ -120,9 +116,6 @@ while RUNNING_GAME:
             MENU = True
             save()
             time.sleep(0.4)
-
-        # if user_input == "1":
-        #     c.old_chest2.loot(user)
 
         if user_input == "c":
             while True:

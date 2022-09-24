@@ -84,20 +84,3 @@ old_chest3 = Chest(randloot.randitems, randloot.rcoins)
 
 print(old_chest2.loose_items)
 print(', '.join(old_chest2.loose_items.contents))
-
-# print(old_chest1.loose_items, old_chest1.loose_coins)
-# print(old_chest2.loose_items, old_chest2.loose_coins)
-
-
-#Testing Ground
-
-# user = Player("Jay")
-# user.coinpurse.set(30)
-# user.linen_bag.set(["rusty dagger", "gold ring"])
-# print(user.linen_bag)
-# old_chest = Chest(["rusty dagger", "gold ring"], 30)
-# print(old_chest.loose_coins, old_chest.loose_items)
-# print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")
-# time.sleep(2)
-# old_chest.loot(user)
-# print(f"{user.name} has {user.coinpurse} coins and {user.linen_bag} in their bag")
