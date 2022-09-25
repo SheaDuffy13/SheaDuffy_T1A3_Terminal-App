@@ -85,6 +85,3 @@ randloot()
 old_chest3 = Chest(randloot.randitems, randloot.rcoins)
 
 well_chest = Chest( ["drowned rat"], 200)
-
-print(old_chest2.loose_items)
-print(', '.join(old_chest2.loose_items.contents))

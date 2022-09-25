@@ -1,4 +1,4 @@
 S
-0
-[]
-0
+52
+['emerald ring', 'gold ring', 'pearl earrings', 'silver necklace', 'pearl earrings', 'bottle of rum', 'aged wine', 'emerald ring', 'moldy bread roll']
+3

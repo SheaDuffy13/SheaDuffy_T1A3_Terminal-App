@@ -29,11 +29,12 @@ def save():
 clearing.clear()
 c.home_screen_img()
 input("\n    Press Enter to continue... \n")
-clearing.clear()
+# clearing.clear()
 
 # Main Program
 while RUNNING_GAME:
     while MENU:
+        clearing.clear()
         art.draw()
         print(" 1. NEW GAME")
         print(" 2. LOAD GAME")
@@ -94,7 +95,7 @@ while RUNNING_GAME:
         inventory_menu_items = ["back", "", f"{user.fishbucket} fish"] + usr_inv
         inventory_menu = TerminalMenu(
             inventory_menu_items,
-            title = "Inventory\n",
+            title = f"{user_name}'s Inventory\n",
             skip_empty_entries = True,
             clear_screen = True
         )
@@ -104,8 +105,12 @@ while RUNNING_GAME:
             PLAY = True
         if inv_sel == 2:
             print(art.bucket_art)
-            print("\nthe stench of fish is overwhelming..")
-            input("\n\ncontinue..")
+            if user.fishbucket.coins is 0:
+                print("empty..")
+                input("\n\ncontinue..")
+            else:
+                print("\nthe stench of fish is overwhelming..")
+                input("\n\ncontinue..")
         if inv_sel >= 3:
             print(f"\n{user_name}'s newly aquired {inventory_menu_items[inv_sel]}.. \n\nMaybe this will fetch some coins")
             if inventory_menu_items[inv_sel] == "worn book":
