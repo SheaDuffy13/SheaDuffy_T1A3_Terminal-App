@@ -51,8 +51,9 @@ while RUNNING_GAME:
             user.linen_bag.set([])
             user.fishbucket.set(0)
             clearing.clear()
-            print(f"\nWelcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.\n")
-            input("\ncontinue..")
+            print(f"\nWelcome, {user_name}. To make selections enter the prompted letter or number.\n")
+            print("To continue, hit Enter. This game auto saves.")
+            input("\n\n\ncontinue..")
             MENU = False
             PLAY = True
 
@@ -116,7 +117,8 @@ while RUNNING_GAME:
         save()
         clearing.clear()
         print(art.mountain_art)
-        print(f"You stand at a crossroads in the mountains. Upon checking your coinpurse you have {user.coinpurse} coins. You see a lake in one direction and a cabin in another.")
+        print(f"You stand at a crossroads in the mountains. Upon checking your coinpurse you have {user.coinpurse} coins.")
+        print("You see a lake in one direction and a cabin in another.")
         print("\nc: go to cabin  \nf: fish at the lake          m: main menu \ni: inventory                 e: exit game")
         user_input = input("\n:")
         if user_input == "m":
@@ -129,14 +131,16 @@ while RUNNING_GAME:
             while True:
                 clearing.clear()
                 print(art.cabin_art)
-                print("You've approached a lone cabin. It looks like no one is home. You also see an old well behind the cabin. \n a: approach cabin \n w: investigate well \n e: go back")
+                print("You've approached a lone cabin. It looks like no one is home. You also see an old well behind the cabin.")
+                print(" a: approach cabin \n w: investigate well \n e: go back")
                 c_input = input("\n :")
                 if c_input == "a":
                     CABIN = True
                     while CABIN:
                         clearing.clear()
                         print(art.room_art)
-                        print("You slipped into the cabin and see 3 old chests in the corner.\n \n1: open 1st chest \n2: open 2nd chest \n3: open 3rd chest \ne: leave\n")
+                        print("You slipped into the cabin and see 3 old chests in the corner.\n")
+                        print("1: open 1st chest \n2: open 2nd chest \n3: open 3rd chest \ne: leave\n")
                         c_input = input(":")
                         if c_input == "1":
                             c.old_chest1.loot(user)
