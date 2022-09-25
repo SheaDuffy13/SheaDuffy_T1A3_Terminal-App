@@ -101,6 +101,10 @@ while RUNNING_GAME:
         if inv_sel == 0:
             INVENTORY_MENU_RUN = False
             PLAY = True
+        if inv_sel == 2:
+            print(art.bucket_art)
+            print("\n the stench of fish is overwhelming..")
+            input("\n\ncontinue..")
         if inv_sel >= 3:
             print(f"\n{user_name}'s newly aquired {inventory_menu_items[inv_sel]}.. \n\nMaybe this will fetch some coins")
             if inventory_menu_items[inv_sel] == "worn book":
