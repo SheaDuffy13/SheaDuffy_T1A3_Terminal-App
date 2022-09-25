@@ -50,7 +50,7 @@ class Chest:
         time.sleep(1)
         try:
             print(f"\nYou found: {', '.join(self.loose_items.contents)} and {self.loose_coins.coins} coins")
-            input()
+            input("\n\ncontinue..")
             player.coinpurse.add(self.loose_coins.coins)
             self.loose_coins = 0
             player.linen_bag.add(self.loose_items.contents)
@@ -67,11 +67,13 @@ def home_screen_img():
     print("    ><><><><><><><><><><><><")
 
 def randloot():
-    chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
-                "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
-                "worn book", "aged wine", "emerald ring", "pearl earrings", 
-                "silver fork", "bottle of rum", "silver ring", "cabbage", "small animal skull"]
-    randloot.randitems = random.sample(chest_items, k = random.randint(2,6))
+    chest_items = [
+        "rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
+        "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
+        "worn book", "aged wine", "emerald ring", "pearl earrings",
+        "silver fork", "bottle of rum", "silver ring", "cabbage", "small animal skull"
+        ]
+    randloot.randitems = random.sample(chest_items, k = random.randint(2,5))
     randloot.rcoins = random.randint(0, 50)
     return randloot.rcoins, randloot.randitems
 

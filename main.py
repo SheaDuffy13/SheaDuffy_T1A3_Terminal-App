@@ -51,7 +51,7 @@ while RUNNING_GAME:
             user.linen_bag.set([])
             user.fishbucket.set(0)
             clearing.clear()
-            print(f"\n Welcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.\n")
+            print(f"\nWelcome, {user_name}. To make selections, enter the prompted letter or number. To continue, hit Enter. This game auto saves.\n")
             input("\ncontinue..")
             MENU = False
             PLAY = True
@@ -103,7 +103,7 @@ while RUNNING_GAME:
             PLAY = True
         if inv_sel == 2:
             print(art.bucket_art)
-            print("\n the stench of fish is overwhelming..")
+            print("\nthe stench of fish is overwhelming..")
             input("\n\ncontinue..")
         if inv_sel >= 3:
             print(f"\n{user_name}'s newly aquired {inventory_menu_items[inv_sel]}.. \n\nMaybe this will fetch some coins")
@@ -129,7 +129,7 @@ while RUNNING_GAME:
             while True:
                 clearing.clear()
                 print(art.cabin_art)
-                print(" You've approached a lone cabin. It looks like no one is home. You also see an old well behind the cabin. \n a: approach cabin \n w: investigate well \n e: go back")
+                print("You've approached a lone cabin. It looks like no one is home. You also see an old well behind the cabin. \n a: approach cabin \n w: investigate well \n e: go back")
                 c_input = input("\n :")
                 if c_input == "a":
                     CABIN = True
@@ -156,9 +156,9 @@ while RUNNING_GAME:
                     while WELL:
                         clearing.clear()
                         print(art.well_art)
-                        print("\nYou approach the old well and see a crank to pull up the bucket. \n1: investigate bucket \ne: leave")
+                        print("You approach the old well and see a crank to pull up the bucket. \nb: investigate bucket \ne: leave")
                         w_input = input(":")
-                        if w_input == "1":
+                        if w_input == "b":
                             c.well_chest.loot(user)
                         elif w_input == "e":
                             WELL = False
