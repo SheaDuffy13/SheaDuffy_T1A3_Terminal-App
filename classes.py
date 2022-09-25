@@ -69,8 +69,8 @@ def home_screen_img():
 def randloot():
     chest_items = ["rusty dagger", "gold ring", "cheese wheel", "moldy bread roll", "moth-eaten linens",
                 "baggie of strange herbs", "silk pantaloons", "silver necklace", "skooma",
-                "a worn book", "aged wine", "emerald ring", "pearl earrings", 
-                "silver fork", "bottle of rum", "silver ring", "a cabbage", "small animal skull"]
+                "worn book", "aged wine", "emerald ring", "pearl earrings", 
+                "silver fork", "bottle of rum", "silver ring", "cabbage", "small animal skull"]
     randloot.randitems = random.sample(chest_items, k = random.randint(2,6))
     randloot.rcoins = random.randint(0, 80)
     return randloot.rcoins, randloot.randitems
