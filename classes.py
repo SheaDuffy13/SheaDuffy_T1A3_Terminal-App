@@ -72,7 +72,7 @@ def randloot():
                 "worn book", "aged wine", "emerald ring", "pearl earrings", 
                 "silver fork", "bottle of rum", "silver ring", "cabbage", "small animal skull"]
     randloot.randitems = random.sample(chest_items, k = random.randint(2,6))
-    randloot.rcoins = random.randint(0, 80)
+    randloot.rcoins = random.randint(0, 50)
     return randloot.rcoins, randloot.randitems
 
 randloot()
@@ -81,6 +81,8 @@ randloot()
 old_chest2 = Chest(randloot.randitems, randloot.rcoins)
 randloot()
 old_chest3 = Chest(randloot.randitems, randloot.rcoins)
+
+well_chest = Chest( ["drowned rat"], 200)
 
 print(old_chest2.loose_items)
 print(', '.join(old_chest2.loose_items.contents))

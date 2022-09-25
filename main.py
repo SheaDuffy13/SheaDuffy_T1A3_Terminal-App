@@ -13,6 +13,7 @@ MENU = True
 PLAY = False
 INVENTORY_MENU_RUN = False
 CABIN = False
+WELL = False
 
 def save():
     save_list = [
@@ -124,29 +125,43 @@ while RUNNING_GAME:
             while True:
                 clearing.clear()
                 print(art.cabin_art)
-                print(" You've approached a lone cabin. It looks like no one is home. \n a: to approach or \n e: to go back")
-                cinput = input("\n :")
-                if cinput == "a":
+                print(" You've approached a lone cabin. It looks like no one is home. You also see an old well behind the cabin. \n a: approach cabin \n w: investigate well \n e: go back")
+                c_input = input("\n :")
+                if c_input == "a":
                     CABIN = True
                     while CABIN:
                         clearing.clear()
                         print(art.room_art)
                         print("You slipped into the cabin and see 3 old chests in the corner.\n \n1: open 1st chest \n2: open 2nd chest \n3: open 3rd chest \ne: leave\n")
-                        cinput = input(": ")
-                        if cinput == "1":
+                        c_input = input(":")
+                        if c_input == "1":
                             c.old_chest1.loot(user)
                             continue
-                        elif cinput == "2":
+                        elif c_input == "2":
                             c.old_chest2.loot(user)
                             continue
-                        elif cinput == "3":
+                        elif c_input == "3":
                             c.old_chest3.loot(user)
                             continue
-                        elif cinput == "e":
+                        elif c_input == "e":
                             CABIN = False
                         else:
                             continue
-                elif cinput == "e":
+                elif c_input == "w":
+                    WELL = True
+                    while WELL:
+                        clearing.clear()
+                        print(art.well_art)
+                        print("\nYou approach the old well and see a crank to pull up the bucket. \n1: investigate bucket \ne: leave")
+                        w_input = input(":")
+                        if w_input == "1":
+                            c.well_chest.loot(user)
+                        elif w_input == "e":
+                            WELL = False
+                        else:
+                            continue
+
+                elif c_input == "e":
                     CABIN = False
                     clearing.clear()
                     print(art.road_art)

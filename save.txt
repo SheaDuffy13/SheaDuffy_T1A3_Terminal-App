@@ -1,4 +1,4 @@
 Seth
-221
-['moth-eaten linens', 'silver fork', 'cabbage', 'cheese wheel', 'moth-eaten linens', 'pearl earrings', 'silk pantaloons', 'silver ring', 'pearl earrings', 'baggie of strange herbs', 'cabbage', 'silver fork', 'bottle of rum', 'silk pantaloons', 'worn book', 'cabbage']
+442
+['moth-eaten linens', 'silver fork', 'cabbage', 'cheese wheel', 'moth-eaten linens', 'pearl earrings', 'silk pantaloons', 'silver ring', 'pearl earrings', 'baggie of strange herbs', 'cabbage', 'silver fork', 'bottle of rum', 'silk pantaloons', 'worn book', 'cabbage', 'drowned rat', 'moth-eaten linens', 'cheese wheel', 'gold ring', 'aged wine']
 0
