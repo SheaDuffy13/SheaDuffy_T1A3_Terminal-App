@@ -112,7 +112,7 @@ while RUNNING_GAME:
                 print("\nthe stench of fish is overwhelming..")
                 input("\n\ncontinue..")
         if inv_sel >= 3:
-            print(f"\n{user_name}'s newly aquired {inventory_menu_items[inv_sel]}.. \n\nMaybe this will fetch some coins")
+            print(f"\n{user_name}'s newly aquired {inventory_menu_items[inv_sel]}.. \nMaybe this will fetch some coins")
             if inventory_menu_items[inv_sel] == "worn book":
                 print("\nYou turn the book over to read the title.. 'The Lusty Argonian Maid'")
             input("\n\ncontinue..")
